@@ -2,6 +2,8 @@ package com.example.guillermo.ggrg_pulsor;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.graphics.Color;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    ConstraintLayout full_view;
     private TextView numale;
     private TextView numsecue;
     private TextView result;
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        full_view = findViewById(R.id.full_view);
         numale=findViewById(R.id.txtnumale);
         numsecue=findViewById(R.id.txtnumsecu);
         botreiniciar=findViewById(R.id.btnreiniciar);
@@ -41,8 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 comparar=true;
                 if(numale.getText().equals(numsecue.getText())){
                     result.setText("¡Ganaste!");
+                    full_view.setBackgroundColor(Color.GREEN);
                 }else{
                     result.setText("¡Perdiste!");
+                    full_view.setBackgroundColor(Color.RED);
                 }
             }
         });
